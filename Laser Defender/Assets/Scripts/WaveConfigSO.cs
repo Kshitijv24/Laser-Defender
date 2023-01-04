@@ -7,6 +7,11 @@ public class WaveConfigSO : ScriptableObject
     [SerializeField] Transform pathPrefab;
     [SerializeField] float moveSpeed;
 
+    public float GetMoveSpeed()
+    {
+        return moveSpeed;
+    }
+
     public Transform GetStartingWaypoint()
     {
         return pathPrefab.GetChild(0);
@@ -22,10 +27,5 @@ public class WaveConfigSO : ScriptableObject
         }
 
         return waypoints;
-    }
-
-    public float GetMoveSpeed()
-    {
-        return moveSpeed;
     }
 }
