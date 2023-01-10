@@ -3,18 +3,27 @@ using System.Collections;
 
 public class Shooter : MonoBehaviour
 {
+    [Header("General")]
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] float projectileSpeed;
     [SerializeField] float projectileLifeTime;
-    [SerializeField] float firingRate;
+    [SerializeField] float baseFiringRate;
 
-    public bool isFiring;
+    [Header("Enemy AI")]
+    [SerializeField] bool usingEnemyAI;
+    [SerializeField] float firingRateVariance;
+    [SerializeField] float minimumFiringRate;
+
+    [HideInInspector] public bool isFiring;
 
     Coroutine firingCoroutine;
 
     private void Start()
     {
-        
+        if (usingEnemyAI)
+        {
+            isFiring = true;
+        }
     }
 
     private void Update()
@@ -51,7 +60,15 @@ public class Shooter : MonoBehaviour
             }
 
             Destroy(instance, projectileLifeTime);
-            yield return new WaitForSeconds(firingRate);
+
+            float timeToNextProjectile = Random.Range(baseFiringRate - firingRateVariance,
+                                                      baseFiringRate + firingRateVariance);
+
+            timeToNextProjectile = Mathf.Clamp(timeToNextProjectile, 
+                                               minimumFiringRate,
+                                               float.MaxValue);
+
+            yield return new WaitForSeconds(timeToNextProjectile);
         }
     }
 }
