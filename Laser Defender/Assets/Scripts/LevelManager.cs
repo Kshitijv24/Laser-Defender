@@ -5,6 +5,12 @@ using System.Collections;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] float sceneLoadDelay;
+    ScoreManager scoreManager;
+
+    private void Awake()
+    {
+        scoreManager = FindObjectOfType<ScoreManager>();
+    }
 
     public void LoadMainMenu()
     {
@@ -13,6 +19,7 @@ public class LevelManager : MonoBehaviour
 
     public void LoadGame()
     {
+        scoreManager.ResetScore();
         SceneManager.LoadScene(1);
     }
 
