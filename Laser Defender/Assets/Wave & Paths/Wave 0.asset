@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 2796439370215661164, guid: 8caae16e5edfb5a4b80f8b3593830a03, type: 3}
-  - {fileID: 2796439370215661164, guid: 8caae16e5edfb5a4b80f8b3593830a03, type: 3}
+  - {fileID: 7868870904462300300, guid: e427fcc28b0aef8449d1c27e31912e04, type: 3}
   - {fileID: 2796439370215661164, guid: 8caae16e5edfb5a4b80f8b3593830a03, type: 3}
   pathPrefab: {fileID: 6297607129796820985, guid: a063250690e5b0448929dadaf8c739a5, type: 3}
   moveSpeed: 5

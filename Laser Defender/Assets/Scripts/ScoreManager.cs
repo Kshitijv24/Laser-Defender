@@ -34,7 +34,6 @@ public class ScoreManager : MonoBehaviour
     {
         score += value;
         Mathf.Clamp(score, 0, int.MaxValue);
-        Debug.Log(score);
     }
 
     public void ResetScore()
